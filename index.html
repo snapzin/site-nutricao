@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nutricionista Elaine Antunes – Saúde, Performance e Bem‑Estar</title>
+  <meta name="description"
+    content="Atendimento nutricional humanizado por Elaine Antunes: emagrecimento saudável, performance esportiva, saúde da mulher e reeducação alimentar em planos personalizados." />
+  <meta name="theme-color" content="#0e8f6f" />
+  <meta property="og:title" content="Nutricionista Elaine Antunes" />
+  <meta property="og:description"
+    content="Planos nutricionais personalizados para sua meta: saúde, estética e performance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/cover.jpg" />
+
+  <!-- SEO – Dados estruturados LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Nutricionista Elaine Antunes",
+    "image": "/cover.jpg",
+    "url": "https://www.elaineantunes.com.br",
+    "telephone": "+55 48 99946-9698",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Tubarão",
+      "addressRegion": "SC",
+      "postalCode": "88700-000",
+      "addressCountry": "BR"
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "350"
+  }
+  </script>
+
+  <style>
+    /* =========================
+       Design Tokens
+       ========================= */
+    :root {
+      --bg: #ffffff;
+      --bg-muted: #f6f9f8;
+      --surface: #ffffff;
+      --text: #0c2a27;
+      --text-muted: #40615c;
+      --primary: #0e8f6f;
+      --primary-600: #0b7a5e;
+      --primary-700: #09634d;
+      --accent: #ffd166;
+      --danger: #d7263d;
+      --ring: rgba(14, 143, 111, 0.35);
+      --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+      --radius: 18px;
+      --radius-lg: 28px;
+
+      --maxw: 1180px;
+      --space-1: .25rem;
+      /* 4px */
+      --space-2: .5rem;
+      /* 8px */
+      --space-3: .75rem;
+      /* 12px */
+      --space-4: 1rem;
+      /* 16px */
+      --space-5: 1.25rem;
+      /* 20px */
+      --space-6: 1.5rem;
+      /* 24px */
+      --space-8: 2rem;
+      /* 32px */
+      --space-10: 2.5rem;
+      /* 40px */
+      --space-12: 3rem;
+      /* 48px */
+      --space-16: 4rem;
+      /* 64px */
+
+      --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0f0e;
+        --bg-muted: #0d1413;
+        --surface: #101715;
+        --text: #e6fbf5;
+        --text-muted: #b3d6cf;
+        --shadow: 0 10px 30px rgba(0, 0, 0, .4);
+      }
+    }
+
+    /* =========================
+       Baseline
+       ========================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(14, 143, 111, .08), transparent 60%),
+        linear-gradient(180deg, var(--bg-muted), var(--bg));
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Fluid Type */
+    h1 {
+      font-size: clamp(2rem, 3.4vw + 1rem, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.2vw + 1rem, 2.4rem);
+      line-height: 1.15;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 1.1vw + 1rem, 1.6rem);
+    }
+
+    p,
+    li {
+      font-size: clamp(1rem, .35vw + .9rem, 1.125rem);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin-inline: auto;
+      padding: 0 var(--space-4);
+    }
+
+    /* =========================
+       Reusable Components
+       ========================= */
+    .btn {
+      --btn-bg: var(--primary);
+      --btn-fg: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: .6ch;
+      padding: .9rem 1.2rem;
+      border-radius: calc(var(--radius) + 6px);
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, .06);
+      transition: transform .12s ease, filter .2s ease, box-shadow .2s ease;
+      will-change: transform;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      filter: brightness(.98);
+    }
+
+    .btn.secondary {
+      --btn-bg: var(--surface);
+      --btn-fg: var(--text);
+      border-color: rgba(14, 143, 111, .25);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border-color: rgba(14, 143, 111, .35);
+      box-shadow: none;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .5ch;
+      padding: .4rem .7rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(14, 143, 111, .12), rgba(14, 143, 111, .08));
+      border: 1px solid rgba(14, 143, 111, .22);
+      color: var(--primary-700);
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: clip;
+    }
+
+    .section {
+      padding: var(--space-16) 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    @media (min-width: 900px) {
+      .grid.cols-2 {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+    }
+
+    .ring:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 6px var(--ring);
+    }
+
+    /* =========================
+       Header & Nav
+       ========================= */
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in hsl, var(--bg) 85%, transparent);
+      border-bottom: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .brand .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(from 210deg at 60% 40%, #27c2a0, #0e8f6f, #0b7a5e, #27c2a0);
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .35);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: var(--space-4);
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      padding: .6rem .8rem;
+      border-radius: 10px;
+    }
+
+    nav a:hover {
+      background: rgba(14, 143, 111, .08);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: .75rem;
+      align-items: center;
+    }
+
+    /* Mobile Nav */
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      nav ul {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-sheet {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .4);
+        backdrop-filter: blur(4px);
+        display: none;
+      }
+
+      .mobile-panel {
+        position: absolute;
+        inset: 0 0 0 30%;
+        background: var(--surface);
+        padding: var(--space-8);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+
+      .mobile-panel a {
+        padding: .9rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, .06);
+      }
+
+      .mobile-panel a:active {
+        background: rgba(14, 143, 111, .08);
+      }
+
+      .mobile-sheet.open {
+        display: block;
+      }
+    }
+
+    /* =========================
+       Hero
+       ========================= */
+    .hero {
+      padding: clamp(3rem, 6vw, 6rem) 0 clamp(2rem, 4vw, 4rem);
+    }
+
+    .hero .badge {
+      margin-bottom: var(--space-4);
+    }
+
+    .hero .copy {
+      max-width: 64ch;
+    }
+
+    .hero .actions {
+      margin-top: var(--space-6);
+      display: flex;
+      gap: .9rem;
+      flex-wrap: wrap;
+    }
+
+    .hero .media {
+      position: relative;
+      isolation: isolate;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background:
+        radial-gradient(600px 300px at 70% 10%, rgba(255, 209, 102, .35), transparent 60%),
+        linear-gradient(135deg, rgba(14, 143, 111, .18), rgba(14, 143, 111, .05));
+      border: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .hero .media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><defs><linearGradient id=\"g\" x1=\"0\" x2=\"1\"><stop stop-color=\"%230e8f6f\" offset=\"0\"/><stop stop-color=\"%2327c2a0\" offset=\"1\"/></linearGradient></defs><g fill=\"none\" stroke=\"url(%23g)\" stroke-width=\"2\" opacity=\".25\">' + Array.from({
+          length:18
+        }
+
+        , (_, i)=>`<path d=\"M-50 $ {
+          i*25
+        }
+
+        Q 150 $ {
+          50+i*10
+        }
+
+        300 $ {
+          i*22
+        }
+
+        T 650 $ {
+          i*25
+        }
+
+        \" />`).join('')+ '</g></svg>') center/cover no-repeat;
+    mix-blend-mode: multiply;
+    opacity: .6;
+    }
+
+    /* =========================
+       Sections specifics
+       ========================= */
+    .features {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .feature {
+      padding: var(--space-6);
+      display: grid;
+      gap: .6rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0, 0, 0, .06);
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface), var(--primary) 5%));
+    }
+
+    .feature .icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(14, 143, 111, .12);
+      border: 1px solid rgba(14, 143, 111, .22);
+    }
+
+    .split {
+      align-items: center;
+    }
+
+    .list-check {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .list-check li {
+      display: flex;
+      gap: .6rem;
+      align-items: flex-start;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      gap: var(--space-6);
+      text-align: center;
+    }
+
+    .stats .num {
+      font-size: clamp(1.6rem, 1.2vw + 1rem, 2.2rem);
+      font-weight: 800;
+    }
+
+    .stats .label {
+      color: var(--text-muted);
+    }
+
+    .testimonials {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .testimonial {
+      padding: var(--space-6);
+      display: grid;
+      gap: .9rem;
+      border: 1px solid rgba(0, 0, 0, .06);
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface), var(--primary) 4%));
+    }
+
+    .testimonial footer {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .avatar {
+      width: 44px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #27c2a0, #0e8f6f);
+      border: 2px solid rgba(255, 255, 255, .7);
+    }
+
+    .pricing {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .price-card {
+      padding: var(--space-6);
+      display: grid;
+      gap: .9rem;
+      position: relative;
+    }
+
+    .price {
+      font-size: clamp(1.8rem, 1.4vw + 1rem, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .price small {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: .6em;
+    }
+
+    .badge-best {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .faq details {
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 14px;
+      padding: .9rem 1rem;
+      background: var(--surface);
+    }
+
+    .faq details+details {
+      margin-top: .8rem;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .cta {
+      background: radial-gradient(800px 300px at 10% 0%, rgba(39, 194, 160, .22), transparent 50%),
+        linear-gradient(180deg, color-mix(in oklab, var(--primary) 14%, var(--bg)), var(--surface));
+      border: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    /* =========================
+       Footer
+       ========================= */
+    footer.site {
+      padding: var(--space-12) 0 var(--space-8);
+      color: var(--text-muted);
+    }
+
+    .foot-grid {
+      display: grid;
+      gap: var(--space-8);
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+    }
+
+    @media (max-width: 900px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* =========================
+       Utilities
+       ========================= */
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .mt-2 {
+      margin-top: var(--space-2);
+    }
+
+    .mt-4 {
+      margin-top: var(--space-4);
+    }
+
+    .mt-6 {
+      margin-top: var(--space-6);
+    }
+
+    .mt-8 {
+      margin-top: var(--space-8);
+    }
+
+    .mt-12 {
+      margin-top: var(--space-12);
+    }
+
+    .mb-0 {
+      margin-bottom: 0;
+    }
+
+    .pill {
+      border-radius: 999px;
+    }
+
+    /* Print */
+    @media print {
+
+      header.site,
+      .menu-toggle,
+      .actions,
+      .cta,
+      .mobile-sheet {
+        display: none !important;
+      }
+
+      .section {
+        padding: 1.2rem 0;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .card {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site">
+    <div class="container nav" role="navigation" aria-label="Principal">
+      <a href="#top" class="brand ring" aria-label="Página inicial">
+        <span class="logo" aria-hidden="true">EA</span>
+        <span>Elaine Antunes <span class="muted">Nutricionista</span></span>
+      </a>
+
+      <nav aria-label="Navegação primária">
+        <ul>
+          <li><a href="#servicos" class="ring">Serviços</a></li>
+          <li><a href="#sobre" class="ring">Sobre</a></li>
+          <li><a href="#depoimentos" class="ring">Depoimentos</a></li>
+          <li><a href="#planos" class="ring">Planos</a></li>
+          <li><a href="#contato" class="ring">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn secondary ring" href="#contato" aria-label="Marcar consulta">Agendar consulta</a>
+        <button class="btn ghost menu-toggle ring" aria-label="Abrir menu" aria-expanded="false"
+          aria-controls="menu-mobile">
+          <!-- hamburger icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="mobile-sheet" id="menu-mobile" hidden>
+      <div class="mobile-panel">
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato">Contato</a>
+        <a class="btn" href="#contato">Agendar agora</a>
+        <button class="btn ghost" id="close-mobile">Fechar</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero container">
+    <div class="grid cols-2 split">
+      <section class="copy" aria-label="Apresentação">
+        <span class="chip badge">CRM: CRN‑SC 10/10064 | 4+ anos de prática</span>
+        <h1>Alimentação que Acolhe: <span
+            style="background:linear-gradient(90deg,#27c2a0,#0e8f6f);-webkit-background-clip:text;background-clip:text;color:transparent">como
+            se alimentar durante o tratamento oncológico</span>.</h1>
+
+        <p class="mt-4 muted">Descobriu que está com câncer ou já está em tratamento oncológico?
+          Eu sou a <strong>Dr Elaine</strong> nutricionista oncológica, e vou te ajudar a perder o medo da comida.
+          Sei que você anda lendo, ouvindo e vendo muitas coisas na internet que podem gerar insegurança. Mas quero te
+          mostrar que é possível enfrentar o câncer com leveza, clareza e consistência. Vem comigo!</p>
+        <div class="actions">
+          <a class="btn ring" href="#contato">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2 5h20M2 12h20M2 19h20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Agendar avaliação
+          </a>
+          <a class="btn secondary ring" href="#servicos">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 6v12m6-6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Ver serviços
+          </a>
+        </div>
+
+        <div class="stats mt-12" aria-label="Indicadores de confiança">
+          <div>
+            <div class="num">500+</div>
+            <div class="label">pacientes satisfeitos</div>
+          </div>
+          <div>
+            <div class="num">9.4</div>
+            <div class="label">satisfação média</div>
+          </div>
+          <div>
+            <div class="num">85%</div>
+            <div class="label">adesão aos planos</div>
+          </div>
+          <div>
+            <div class="num">10+</div>
+            <div class="label">Lojas parceiras</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="media card" aria-label="doutora1.jpg">
+        <img src="../img/doutora1.jpg" alt="Doutora Elaine Antunes" />
+      </aside>
+    </div>
+  </main>
+
+  <!-- Serviços -->
+  <section id="servicos" class="section container">
+    <header class="center">
+      <h2>Como posso te ajudar</h2>
+      <p class="muted mt-2">Atendimento individualizado, com foco em metas claras e sustentável no longo prazo.</p>
+    </header>
+
+    <div class="grid features mt-8">
+      <article class="feature">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M4 12a8 8 0 1016 0A8 8 0 004 12zm8-5v10m5-5H7" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3>Emagrecimento saudável</h3>
+        <p class="muted">Perda de peso sem dietas restritivas. Estratégias flexíveis, educação alimentar e
+          acompanhamento próximo.</p>
+        <ul class="list-check mt-4">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Plano alimentar personalizado</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Educação e hábitos</li>
+        </ul>
+      </article>
+
+      <article class="feature">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3l3 7h7l-5.5 4 2.5 7-7-4.5L5 21l2.5-7L2 10h7l3-7z" stroke="currentColor" stroke-width="2"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h3>Performance esportiva</h3>
+        <p class="muted">Estratégias para treinos, competição e recuperação: periodização nutricional, body composition
+          e suplementação segura.</p>
+      </article>
+
+      <article class="feature">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3>Saúde da mulher</h3>
+        <p class="muted">Nutrição para ciclos, TPM/TDPM, gestação, pós-parto e menopausa. Abordagem gentil e baseada em
+          evidências.</p>
+      </article>
+
+      <article class="feature">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3>Reeducação alimentar</h3>
+        <p class="muted">Construção de rotina e repertório alimentar que caibam na sua vida real — sem terrorismo
+          nutricional.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="section container">
+    <div class="grid cols-2 split">
+      <div>
+        <h2>Sobre a Elaine</h2>
+        <p class="muted mt-2">CRN‑SC 10/10064 • Pós-graduada em Nutrição Oncológica. Atua com orientação nutricional,
+          palestras e educação alimentar para pacientes e empresas.</p>
+        <ul class="list-check mt-6">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Atendimento presencial e online</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Cardápios realistas e acessíveis</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Acompanhamento por WhatsApp</li>
+        </ul>
+      </div>
+      <div class="card" style="padding: var(--space-6); display:grid; gap: .6rem;">
+        <span class="chip" style="width:max-content">Missão</span>
+        <p class="mb-0">Promover saúde com ciência, afeto e autonomia — para que cada pessoa entenda seu corpo e faça
+          escolhas com liberdade.</p>
+        <span class="chip mt-6" style="width:max-content">Valores</span>
+        <p class="mb-0">Ética, empatia, evidências, clareza e consistência.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="depoimentos" class="section container">
+    <header class="center">
+      <h2>O que dizem os pacientes</h2>
+      <p class="muted mt-2">Resultados reais de pessoas reais — com leveza, rotina e constância.</p>
+    </header>
+
+    <div class="grid testimonials mt-8">
+      <figure class="testimonial card">
+        <figcaption>“A primeira dieta que consegui seguir por meses. Perdi 8kg sem sofrer.”</figcaption>
+        <footer>
+          <span class="avatar" aria-hidden="true"></span>
+          <div>
+            <strong>Mariana C.</strong>
+            <div class="muted">Emagrecimento • 6 meses</div>
+          </div>
+        </footer>
+      </figure>
+      <figure class="testimonial card">
+        <figcaption>“Minha corrida evoluiu demais. Comer certo para treinar certo mudou tudo.”</figcaption>
+        <footer>
+          <span class="avatar" aria-hidden="true"></span>
+          <div>
+            <strong>Eduardo R.</strong>
+            <div class="muted">Meia maratona • 4 meses</div>
+          </div>
+        </footer>
+      </figure>
+      <figure class="testimonial card">
+        <figcaption>“Saí do efeito sanfona. Hoje sei montar meu prato e lidar com eventos.”</figcaption>
+        <footer>
+          <span class="avatar" aria-hidden="true"></span>
+          <div>
+            <strong>Talita S.</strong>
+            <div class="muted">Reeducação • 5 meses</div>
+          </div>
+        </footer>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Planos / Preços -->
+  <section id="planos" class="section container">
+    <header class="center">
+      <h2>Planos de acompanhamento</h2>
+      <p class="muted mt-2">Escolha o formato ideal para o seu momento. Todos incluem avaliação completa e materiais de
+        apoio.</p>
+    </header>
+
+    <div class="grid pricing mt-8">
+      <article class="card price-card">
+        <h3>Start</h3>
+        <p class="muted">Para quem quer começar com o pé direito.</p>
+        <div class="price">R$ 249 <small>/ sessão</small></div>
+        <ul class="list-check">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Avaliação completa (60–75min)</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Plano alimentar inicial</li>
+        </ul>
+        <a class="btn mt-6 ring" href="#contato">Agendar</a>
+      </article>
+
+      <article class="card price-card" aria-labelledby="best">
+        <span class="chip badge-best" id="best">Mais escolhido</span>
+        <h3>Follow</h3>
+        <p class="muted">Acompanhamento mensal para progresso contínuo.</p>
+        <div class="price">R$ 349 <small>/ mês</small></div>
+        <ul class="list-check">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Reavaliação quinzenal</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Ajustes de plano ilimitados</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Suporte por WhatsApp</li>
+        </ul>
+        <a class="btn mt-6 ring" href="#contato">Começar</a>
+      </article>
+
+      <article class="card price-card">
+        <h3>Performance</h3>
+        <p class="muted">Foco em esporte, composição corporal e periodização.</p>
+        <div class="price">R$ 449 <small>/ mês</small></div>
+        <ul class="list-check">
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Estratégias pré/intra/pós treino</li>
+          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg> Relatórios mensais</li>
+        </ul>
+        <a class="btn mt-6 ring" href="#contato">Quero este</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container faq">
+    <header class="center">
+      <h2>Perguntas frequentes</h2>
+      <p class="muted mt-2">Transparência total antes de você marcar sua consulta.</p>
+    </header>
+
+    <div class="grid mt-8">
+      <details>
+        <summary>O atendimento é presencial ou online?</summary>
+        <p>Ambos. Atendo em consultório em Tubarão/SC e também por vídeo, com a mesma qualidade e materiais.</p>
+      </details>
+      <details>
+        <summary>Vocês passam suplementos?</summary>
+        <p>Somente quando há necessidade e com foco em segurança, qualidade e custo-benefício.</p>
+      </details>
+      <details>
+        <summary>O plano alimentar é restrito?</summary>
+        <p>Não. Montamos juntos de acordo com sua rotina, preferências, cultura e orçamento.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section container card cta" aria-label="Agendamento">
+    <div class="grid cols-2 split">
+      <div>
+        <h2>Pronto(a) para começar?</h2>
+        <p class="muted mt-2">Clique para enviar uma mensagem e reservar sua avaliação. Respondo em até 24h úteis.</p>
+        <div class="actions mt-6">
+          <a class="btn ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn secondary ring" href="#contato">Formulário</a>
+        </div>
+      </div>
+      <div aria-hidden="true" class="center">
+        <svg viewBox="0 0 300 150" style="max-width:340px;opacity:.9">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop stop-color="#27c2a0" offset="0" />
+              <stop stop-color="#0e8f6f" offset="1" />
+            </linearGradient>
+          </defs>
+          <path d="M0 100 Q80 60 150 90 T300 80" fill="none" stroke="url(#g1)" stroke-width="8"
+            stroke-linecap="round" />
+          <circle cx="50" cy="90" r="6" fill="#27c2a0" />
+          <circle cx="180" cy="85" r="6" fill="#0e8f6f" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section container">
+    <header class="center">
+      <h2>Fale comigo</h2>
+      <p class="muted mt-2">Tire suas dúvidas ou solicite sua avaliação. Retorno em horário comercial.</p>
+    </header>
+
+    <div class="grid cols-2 mt-8">
+      <form id="contact-form" action="https://formspree.io/f/xwpnpqqp" method="POST">
+        <label>Nome
+          <input class=" ring" name="name" required placeholder="Seu nome" />
+        </label>
+        <label>E‑mail
+          <input class="ring" type="email" name="email" required placeholder="elaineapaantunes@gmail.com" />
+        </label>
+        <label>Telefone (WhatsApp)
+          <input class="ring" type="tel" name="telefone" placeholder="(48) 99946‑9698" />
+        </label>
+        <label>Mensagem
+          <textarea class="ring" name="message" rows="5" required
+            placeholder="Conte um pouco do seu objetivo"></textarea>
+        </label>
+        <div style="display:flex; gap:.75rem; flex-wrap:wrap; align-items:center;">
+          <button class="btn" type="submit">Enviar</button>
+          <span class="muted" id="form-status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <aside class="card" style="padding: var(--space-6); display:grid; gap: .6rem;">
+        <h3>Consultório</h3>
+        <p class="muted">Rua verador adolfo machado, 549 — Centro, Tubarão/SC</p>
+        <h3 class="mt-6">Atendimento</h3>
+        <p class="muted">Seg a Sex, 9h às 18h</p>
+        <h3 class="mt-6">Contato</h3>
+        <p class="muted">WhatsApp: <a href="https://wa.me/48999469698" target="_blank" rel="noopener">(48)
+            99946‑9698</a><br>E‑mail: <a href="mailto:elaineapaantunes@gmail.com">elaineapaantunes@gmail.com</a>
+        </p>
+        <div class="mt-6" aria-hidden="true">
+          <svg viewBox="0 0 340 140" style="max-width: 460px;">
+            <defs>
+              <linearGradient id="g2" x1="0" x2="1">
+                <stop stop-color="#27c2a0" offset="0" />
+                <stop stop-color="#0e8f6f" offset="1" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="340" height="140" rx="20" fill="url(#g2)" opacity=".12" />
+            <g stroke="#0e8f6f" opacity=".35" fill="none" stroke-width="2">
+              <path d="M10 70h320" />
+              <path d="M20 40h300" />
+              <path d="M20 100h260" />
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site">
+    <div class="container foot-grid">
+      <div>
+        <div class="brand"><span class="logo">EA</span> Elaine Antunes</div>
+        <p class="mt-4">CRN‑SC 10/10064 • Nutrição baseada em evidências, com leveza e resultado real.</p>
+      </div>
+      <div>
+        <strong>Mapa</strong>
+        <ul style="list-style:none;padding:0;margin-top:.8rem;display:grid;gap:.4rem;">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Redes</strong>
+        <ul style="list-style:none;padding:0;margin-top:.8rem;display:grid;gap:.4rem;">
+          <li><a
+              href="https://www.instagram.com/draelaineantunes.nutrionco?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank">Instagram</a>
+          </li>
+          <li><a href="#" target="_blank">TikTok</a></li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Documentos</strong>
+        <ul style="list-style:none;padding:0;margin-top:.8rem;display:grid;gap:.4rem;">
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container"
+      style="margin-top: var(--space-6); display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+      <small>© <span id="year"></span> Elaine Antunes. Todos os direitos reservados.</small>
+      <button class="btn ghost ring" id="theme-toggle" aria-label="Alternar tema">Alternar tema</button>
+    </div>
+  </footer>
+
+  <style>
+    /* Inputs (separado para prioridade) */
+    input,
+    textarea {
+      width: 100%;
+      margin-top: .4rem;
+      padding: .85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 6px var(--ring);
+      border-color: var(--primary-600);
+    }
+
+    label {
+      font-weight: 600;
+    }
+  </style>
+
+  <script>
+    // Ano dinâmico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tema claro/escuro manual com persistência
+    const toggleBtn = document.getElementById('theme-toggle');
+    const userPref = localStorage.getItem('theme');
+    if (userPref === 'dark') document.documentElement.style.colorScheme = 'dark';
+    if (userPref === 'light') document.documentElement.style.colorScheme = 'light';
+    toggleBtn?.addEventListener('click', () => {
+      const cs = getComputedStyle(document.documentElement).colorScheme || document.documentElement.style.colorScheme;
+      const next = cs === 'dark' ? 'light' : 'dark';
+      document.documentElement.style.colorScheme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    // Mobile menu
+    const toggle = document.querySelector('.menu-toggle');
+    const sheet = document.getElementById('menu-mobile');
+    const close = document.getElementById('close-mobile');
+    const openMenu = () => { sheet.classList.add('open'); sheet.hidden = false; toggle.setAttribute('aria-expanded', 'true'); };
+    const closeMenu = () => { sheet.classList.remove('open'); sheet.hidden = true; toggle.setAttribute('aria-expanded', 'false'); };
+    toggle?.addEventListener('click', openMenu);
+    close?.addEventListener('click', closeMenu);
+    sheet?.addEventListener('click', (e) => { if (e.target === sheet) closeMenu(); });
+
+    // Form handler (mock)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const status = document.getElementById('form-status');
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      setTimeout(() => {
+        btn.disabled = false; btn.textContent = 'Enviar';
+        e.target.reset();
+        status.textContent = 'Mensagem enviada! Em breve entrarei em contato.';
+        setTimeout(() => status.textContent = '', 5000);
+      }, 800);
+    }
+  </script>
+</body>
+
+</html>
