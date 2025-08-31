@@ -322,39 +322,15 @@
       }
 
       .menu-toggle {
-        display: inline-flex;
+        display: none;
       }
 
       .mobile-sheet {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, .4);
-        backdrop-filter: blur(4px);
         display: none;
       }
 
       .mobile-panel {
-        position: absolute;
-        inset: 0 0 0 30%;
-        background: var(--surface);
-        padding: var(--space-8);
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-      }
-
-      .mobile-panel a {
-        padding: .9rem 1rem;
-        border-radius: 12px;
-        border: 1px solid rgba(0, 0, 0, .06);
-      }
-
-      .mobile-panel a:active {
-        background: rgba(14, 143, 111, .08);
-      }
-
-      .mobile-sheet.open {
-        display: block;
+        display: none;
       }
     }
 
@@ -641,50 +617,124 @@
         box-shadow: none;
       }
     }
+
+    /* ---------------- RESPONSIVIDADE ---------------- */
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      .grid.cols-2 {
+        grid-template-columns: 1fr !important;
+      }
+
+      .split {
+        gap: var(--space-8);
+      }
+
+      .hero .media {
+        aspect-ratio: 1/1;
+      }
+    }
+
+    /* Smartphones */
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.95rem;
+      }
+
+      .section {
+        padding: var(--space-8) 0;
+      }
+
+      .hero {
+        padding: var(--space-8) 0 var(--space-6);
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: var(--space-2);
+      }
+
+      .brand span {
+        font-size: 0.9rem;
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .media img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+      }
+    }
+
+    /* Menu mobile */
+    .mobile-panel {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 80%;
+      height: 100vh;
+      background: rgba(1, 46, 24, 0.97);
+      padding: 2rem 1rem;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-panel.open {
+      display: flex;
+      transform: translateX(0);
+    }
+
+    .mobile-panel a {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: .8rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+      color: white;
+    }
+
+    .mobile-panel a:hover {
+      background: #002916;
+    }
   </style>
 </head>
 
 <body>
   <!-- Header -->
   <header class="site">
-    <div class="container nav" role="navigation" aria-label="Principal">
+    <div class="container nav">
       <a href="#top" class="brand ring" aria-label="Página inicial">
         <span class="logo" aria-hidden="true">EA</span>
         <span>Elaine Antunes <span class="muted">Nutricionista</span></span>
       </a>
 
-      <nav aria-label="Navegação primária">
+      <nav aria-label="Menu principal" class="desktop-nav">
         <ul>
-          <li><a href="#servicos" class="ring">Serviços</a></li>
-          <li><a href="#sobre" class="ring">Sobre</a></li>
-          <li><a href="#depoimentos" class="ring">Depoimentos</a></li>
-          <li><a href="#planos" class="ring">Planos</a></li>
-          <li><a href="#contato" class="ring">Contato</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
 
       <div class="nav-cta">
         <a class="btn secondary ring" href="#contato" aria-label="Marcar consulta">Agendar consulta</a>
-        <button class="btn ghost menu-toggle ring" aria-label="Abrir menu" aria-expanded="false"
-          aria-controls="menu-mobile">
-          <!-- hamburger icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile sheet -->
-    <div class="mobile-sheet" id="menu-mobile" hidden>
-      <div class="mobile-panel">
-        <a href="#servicos">Serviços</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#planos">Planos</a>
-        <a href="#contato">Contato</a>
-        <a class="btn" href="#contato">Agendar agora</a>
-        <button class="btn ghost" id="close-mobile">Fechar</button>
       </div>
     </div>
   </header>
@@ -747,7 +797,9 @@
   <section id="servicos" class="section container">
     <header class="center">
       <h2>Como posso te ajudar</h2>
-      <p class="muted mt-2">Atendimento individualizado, com foco em metas claras e sustentável no longo prazo.</p>
+      <p class="muted mt-2">Atendimento individualizado, com foco em acolhimento, melhora da qualidade de vida e suporte
+        nutricional em todas as fases do tratamento oncológico.
+      </p>
     </header>
 
     <div class="grid features mt-8">
@@ -758,9 +810,12 @@
               stroke-linecap="round" />
           </svg>
         </div>
-        <h3>Emagrecimento saudável</h3>
-        <p class="muted">Perda de peso sem dietas restritivas. Estratégias flexíveis, educação alimentar e
-          acompanhamento próximo.</p>
+        <h3>Suporte no tratamento oncológico</h3>
+        <p class="muted">Apoio nutricional durante quimioterapia, radioterapia e cirurgias, com estratégias para reduzir
+          efeitos colaterais, preservar massa magra e manter energia.
+          <br /> Plano alimentar adaptado ao tratamento
+          <br /> Orientações práticas para sintomas
+        </p>
         <ul class="list-check mt-4">
           <li><svg class="icon" viewBox="0 0 24 24" fill="none">
               <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -778,9 +833,13 @@
               stroke-linejoin="round" />
           </svg>
         </div>
-        <h3>Performance esportiva</h3>
-        <p class="muted">Estratégias para treinos, competição e recuperação: periodização nutricional, body composition
-          e suplementação segura.</p>
+        <h3>Recuperação e força
+        </h3>
+        <p class="muted">Nutrição voltada para recuperação pós-tratamento e fortalecimento do organismo, favorecendo
+          cicatrização, imunidade e disposição.
+          <br /> Foco na preservação da massa muscular
+          <br /> Suplementação quando necessária
+        </p>
       </article>
 
       <article class="feature">
@@ -790,9 +849,13 @@
             <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
         </div>
-        <h3>Saúde da mulher</h3>
-        <p class="muted">Nutrição para ciclos, TPM/TDPM, gestação, pós-parto e menopausa. Abordagem gentil e baseada em
-          evidências.</p>
+        <h3>Cuidado integral do paciente com câncer
+        </h3>
+        <p class="muted">Acompanhamento específico para pacientes em tratamento de câncer. Abordagem gentil e baseada em
+          evidências.
+          Acolhimento em todas as fases
+          Estratégias personalizadas
+        </p>
       </article>
 
       <article class="feature">
@@ -801,9 +864,13 @@
             <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
         </div>
-        <h3>Reeducação alimentar</h3>
-        <p class="muted">Construção de rotina e repertório alimentar que caibam na sua vida real — sem terrorismo
-          nutricional.</p>
+        <h3>Reeducação alimentar no câncer
+        </h3>
+        <p class="muted">Construção de uma rotina alimentar que respeite o paladar, a realidade do paciente e sua
+          família — sem radicalismos ou terrorismo nutricional.
+          <br /> Educação alimentar acessível
+          <br /> Rotina prática e sustentável
+        </p>
       </article>
     </div>
   </section>
@@ -1130,16 +1197,6 @@
       document.documentElement.style.colorScheme = next;
       localStorage.setItem('theme', next);
     });
-
-    // Mobile menu
-    const toggle = document.querySelector('.menu-toggle');
-    const sheet = document.getElementById('menu-mobile');
-    const close = document.getElementById('close-mobile');
-    const openMenu = () => { sheet.classList.add('open'); sheet.hidden = false; toggle.setAttribute('aria-expanded', 'true'); };
-    const closeMenu = () => { sheet.classList.remove('open'); sheet.hidden = true; toggle.setAttribute('aria-expanded', 'false'); };
-    toggle?.addEventListener('click', openMenu);
-    close?.addEventListener('click', closeMenu);
-    sheet?.addEventListener('click', (e) => { if (e.target === sheet) closeMenu(); });
 
     // Form handler (mock)
     function handleSubmit(e) {
