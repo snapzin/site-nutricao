@@ -515,6 +515,32 @@
       padding: var(--space-16) var(--space-8);
     }
 
+    .cta-anim {
+      animation: ctaPulseSoft 1.2s cubic-bezier(.77, .2, .32, 1);
+    }
+
+    @keyframes ctaPulseSoft {
+      0% {
+        box-shadow: 0 0 0 0 #27c2a022;
+        transform: scale(1);
+      }
+
+      40% {
+        box-shadow: 0 0 0 10px #27c2a022;
+        transform: scale(1.02);
+      }
+
+      60% {
+        box-shadow: 0 0 0 4px #27c2a022;
+        transform: scale(1.01);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 #27c2a022;
+        transform: scale(1);
+      }
+    }
+
     /* =========================
        Footer
        ========================= */
@@ -778,18 +804,30 @@
       overflow-y: auto;
     }
 
-    .price-card:hover {
-      box-shadow: 0 0 0 10px #09634d, 0 12px 40px rgba(9,99,77,.18);
+    wd .price-card:hover {
+      box-shadow: 0 0 0 10px #09634d, 0 12px 40px rgba(9, 99, 77, .18);
       transform: scale(1.06);
       z-index: 2;
       transition: box-shadow .3s, transform .3s;
     }
 
     .price-card[aria-labelledby="best"]:hover {
-      box-shadow: 0 0 0 10px #27c2a0, 0 12px 40px rgba(14,143,111,.18);
+      box-shadow: 0 0 0 10px #27c2a0, 0 12px 40px rgba(14, 143, 111, .18);
       transform: scale(1.06);
       z-index: 2;
       transition: box-shadow .3s, transform .3s;
+    }
+
+    #cookie-popup {
+      transition: opacity .4s, transform .4s;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #cookie-popup.hide {
+      opacity: 0;
+      transform: translateY(40px);
+      pointer-events: none;
     }
   </style>
 </head>
@@ -1087,7 +1125,7 @@
               <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg> Plano alimentar inicial</li>
         </ul>
-        <a class="btn mt-6 ring" href="#contato">Agendar</a>
+        <a class="btn mt-6 ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">Agendar</a>
       </article>
 
       <article class="card price-card" aria-labelledby="best">
@@ -1106,7 +1144,7 @@
               <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg> Suporte por WhatsApp</li>
         </ul>
-        <a class="btn mt-6 ring" href="#contato">Começar</a>
+        <a class="btn mt-6 ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">Começar</a>
       </article>
 
       <article class="card price-card">
@@ -1121,7 +1159,7 @@
               <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg> Relatórios mensais</li>
         </ul>
-        <a class="btn mt-6 ring" href="#contato">Quero este</a>
+        <a class="btn mt-6 ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">Quero este</a>
       </article>
     </div>
   </section>
@@ -1289,7 +1327,8 @@
     <p style="font-size:.98rem;color:#40615c;margin:0;">
       Este site utiliza cookies e coleta dados para melhorar sua experiência. Ao continuar, você concorda com nossos
       <a href="termos.html" target="_blank" style="color:#09634d;text-decoration:underline;">Termos de Uso</a> e
-      <a href="privacidade.html" target="_blank" style="color:#09634d;text-decoration:underline;">Política de Privacidade</a>.
+      <a href="privacidade.html" target="_blank" style="color:#09634d;text-decoration:underline;">Política de
+        Privacidade</a>.
     </p>
     <div style="display:flex;gap:.7rem;flex-wrap:wrap;">
       <button id="accept-terms" class="btn ring" style="width:48%;background:#09634d;">Sim, aceito</button>
@@ -1353,16 +1392,41 @@
 
     // Sempre mostra o popup ao recarregar
     popup.style.display = 'flex';
+    popup.classList.remove('hide');
 
-    acceptBtn?.addEventListener('click', () => {
-      popup.style.display = 'none';
-    });
+    function hidePopup() {
+      popup.classList.add('hide');
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 400);
+    }
+
+    acceptBtn?.addEventListener('click', hidePopup);
 
     declineBtn?.addEventListener('click', () => {
-      popup.style.display = 'none';
-      alert('Você precisa aceitar os termos para continuar navegando.');
-      window.location.href = "https://www.google.com";
+      hidePopup();
+      setTimeout(() => {
+        alert('Você precisa aceitar os termos para continuar navegando.');
+        window.location.href = "https://www.google.com";
+      }, 420);
     });
+
+    // Animação ao chegar na CTA "Pronto(a) para começar?"
+    const ctaSection = document.querySelector('.cta');
+    const ctaAnimClass = 'cta-anim';
+
+    if (ctaSection) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            ctaSection.classList.add(ctaAnimClass);
+            setTimeout(() => ctaSection.classList.remove(ctaAnimClass), 1300);
+          }
+        });
+      }, { threshold: 0.6 });
+
+      observer.observe(ctaSection);
+    }
   </script>
 </body>
 
