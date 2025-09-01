@@ -372,30 +372,9 @@
       content: "";
       position: absolute;
       inset: 0;
-
-      background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><defs><linearGradient id=\"g\" x1=\"0\" x2=\"1\"><stop stop-color=\"%230e8f6f\" offset=\"0\"/><stop stop-color=\"%2327c2a0\" offset=\"1\"/></linearGradient></defs><g fill=\"none\" stroke=\"url(%23g)\" stroke-width=\"2\" opacity=\".25\">' + Array.from({
-          length:18
-        }
-
-        , (_, i)=>`<path d=\"M-50 $ {
-          i*25
-        }
-
-        Q 150 $ {
-          50+i*10
-        }
-
-        300 $ {
-          i*22
-        }
-
-        T 650 $ {
-          i*25
-        }
-
-        \" />`).join('')+ '</g></svg>') center/cover no-repeat;
-    mix-blend-mode: multiply;
-    opacity: .6;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#0e8f6f" offset="0"/><stop stop-color="#27c2a0" offset="1"/></linearGradient></defs><g fill="none" stroke="url(%23g)" stroke-width="2" opacity=".25"><path d="M-50 0 Q 150 50 300 0 T 650 0"/><path d="M-50 25 Q 150 60 300 22 T 650 25"/><path d="M-50 50 Q 150 70 300 44 T 650 50"/><path d="M-50 75 Q 150 80 300 66 T 650 75"/><path d="M-50 100 Q 150 90 300 88 T 650 100"/><path d="M-50 125 Q 150 100 300 110 T 650 125"/><path d="M-50 150 Q 150 110 300 132 T 650 150"/><path d="M-50 175 Q 150 120 300 154 T 650 175"/><path d="M-50 200 Q 150 130 300 176 T 650 200"/><path d="M-50 225 Q 150 140 300 198 T 650 225"/><path d="M-50 250 Q 150 150 300 220 T 650 250"/><path d="M-50 275 Q 150 160 300 242 T 650 275"/><path d="M-50 300 Q 150 170 300 264 T 650 300"/><path d="M-50 325 Q 150 180 300 286 T 650 325"/><path d="M-50 350 Q 150 190 300 308 T 650 350"/><path d="M-50 375 Q 150 200 300 330 T 650 375"/><path d="M-50 400 Q 150 210 300 352 T 650 400"/><path d="M-50 425 Q 150 220 300 374 T 650 425"/></g></svg>') center/cover no-repeat;
+      mix-blend-mode: multiply;
+      opacity: .6;
     }
 
     /* =========================
@@ -533,6 +512,7 @@
       background: radial-gradient(800px 300px at 10% 0%, rgba(39, 194, 160, .22), transparent 50%),
         linear-gradient(180deg, color-mix(in oklab, var(--primary) 14%, var(--bg)), var(--surface));
       border: 1px solid rgba(0, 0, 0, .06);
+      padding: var(--space-16) var(--space-8);
     }
 
     /* =========================
@@ -659,8 +639,7 @@
       }
 
       .nav-cta {
-        width: 100%;
-        justify-content: space-between;
+        display: none !important;
       }
 
       .media img {
@@ -711,6 +690,107 @@
     .mobile-panel a:hover {
       background: #002916;
     }
+
+    #contact-form.card {
+      box-shadow: 0 6px 32px rgba(14, 143, 111, .08);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(14, 143, 111, .10);
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface), var(--primary) 4%));
+    }
+
+    #contact-form h3 {
+      margin-bottom: var(--space-4);
+      font-weight: 700;
+      color: var(--primary-700);
+    }
+
+    #contact-form label {
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: .2rem;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      margin-top: .4rem;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(14, 143, 111, .14);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 1px 0 rgba(14, 143, 111, .04);
+      font-size: 1.08rem;
+      transition: border-color .2s;
+    }
+
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      border-color: var(--primary-600);
+      box-shadow: 0 0 0 6px var(--ring);
+    }
+
+    #contact-form button[type="submit"] {
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      padding: .9rem 2.2rem;
+      border-radius: 14px;
+    }
+
+    #form-status {
+      min-width: 180px;
+      text-align: left;
+      font-size: .98rem;
+      margin-left: .5rem;
+    }
+
+    /* Inputs (separado para prioridade) */
+    input,
+    textarea {
+      width: 100%;
+      margin-top: .4rem;
+      padding: .85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 6px var(--ring);
+      border-color: var(--primary-600);
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    #contact-form textarea {
+      resize: vertical;
+      min-height: 80px;
+      max-height: 220px;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .price-card:hover {
+      box-shadow: 0 0 0 10px #09634d, 0 12px 40px rgba(9,99,77,.18);
+      transform: scale(1.06);
+      z-index: 2;
+      transition: box-shadow .3s, transform .3s;
+    }
+
+    .price-card[aria-labelledby="best"]:hover {
+      box-shadow: 0 0 0 10px #27c2a0, 0 12px 40px rgba(14,143,111,.18);
+      transform: scale(1.06);
+      z-index: 2;
+      transition: box-shadow .3s, transform .3s;
+    }
   </style>
 </head>
 
@@ -719,7 +799,10 @@
   <header class="site">
     <div class="container nav">
       <a href="#top" class="brand ring" aria-label="Página inicial">
-        <span class="logo" aria-hidden="true">EA</span>
+        <span class="logo" aria-hidden="true">
+          <img src="img/banner.jpg" alt="Elaine Antunes"
+            style="width:40px;height:40px;border-radius:12px;object-fit:cover;" />
+        </span>
         <span>Elaine Antunes <span class="muted">Nutricionista</span></span>
       </a>
 
@@ -787,8 +870,8 @@
         </div>
       </section>
 
-      <aside class="media card" aria-label="doutora1.jpg">
-        <img src="../img/doutora1.jpg" alt="Doutora Elaine Antunes" />
+      <aside class="media card" aria-label="banner">
+        <img src="img/doutora1.jpg" alt="Banner Nutricionista Elaine Antunes" />
       </aside>
     </div>
   </main>
@@ -836,10 +919,21 @@
         <h3>Recuperação e força
         </h3>
         <p class="muted">Nutrição voltada para recuperação pós-tratamento e fortalecimento do organismo, favorecendo
-          cicatrização, imunidade e disposição.
-          <br /> Foco na preservação da massa muscular
-          <br /> Suplementação quando necessária
-        </p>
+          cicatrização, imunidade e disposição.</p>
+        <ul class="list-check mt-4">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Foco na preservação da massa muscular
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Suplementação quando necessária
+          </li>
+        </ul>
       </article>
 
       <article class="feature">
@@ -851,11 +945,27 @@
         </div>
         <h3>Cuidado integral do paciente com câncer
         </h3>
-        <p class="muted">Acompanhamento específico para pacientes em tratamento de câncer. Abordagem gentil e baseada em
-          evidências.
-          Acolhimento em todas as fases
-          Estratégias personalizadas
-        </p>
+        <p class="muted">Acompanhamento específico para pacientes em tratamento de câncer.</p>
+        <ul class="list-check mt-4">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Abordagem gentil e baseada em evidências
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Acolhimento em todas as fases
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Estratégias personalizadas
+          </li>
+        </ul>
       </article>
 
       <article class="feature">
@@ -867,10 +977,21 @@
         <h3>Reeducação alimentar no câncer
         </h3>
         <p class="muted">Construção de uma rotina alimentar que respeite o paladar, a realidade do paciente e sua
-          família — sem radicalismos ou terrorismo nutricional.
-          <br /> Educação alimentar acessível
-          <br /> Rotina prática e sustentável
-        </p>
+          família — sem radicalismos ou terrorismo nutricional.</p>
+        <ul class="list-check mt-4">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Educação alimentar acessível
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Rotina prática e sustentável
+          </li>
+        </ul>
       </article>
     </div>
   </section>
@@ -1064,22 +1185,28 @@
     </header>
 
     <div class="grid cols-2 mt-8">
-      <form id="contact-form" action="https://formspree.io/f/xwpnpqqp" method="POST">
-        <label>Nome
-          <input class=" ring" name="name" required placeholder="Seu nome" />
+      <form id="contact-form" action="https://formspree.io/f/xwpnpqqp" method="POST" class="card"
+        style="padding: var(--space-8); display: grid; gap: 1.2rem;">
+        <h3 class="center">Envie sua mensagem</h3>
+        <label>
+          Nome
+          <input class="ring" name="name" required placeholder="Seu nome completo" autocomplete="name" />
         </label>
-        <label>E‑mail
-          <input class="ring" type="email" name="email" required placeholder="elaineapaantunes@gmail.com" />
+        <label>
+          E‑mail
+          <input class="ring" type="email" name="email" required placeholder="seu@email.com" autocomplete="email" />
         </label>
-        <label>Telefone (WhatsApp)
-          <input class="ring" type="tel" name="telefone" placeholder="(48) 99946‑9698" />
+        <label>
+          Telefone (WhatsApp)
+          <input class="ring" type="tel" name="telefone" placeholder="(48) 99946‑9698" autocomplete="tel" />
         </label>
-        <label>Mensagem
+        <label>
+          Mensagem
           <textarea class="ring" name="message" rows="5" required
-            placeholder="Conte um pouco do seu objetivo"></textarea>
+            placeholder="Conte um pouco do seu objetivo, dúvidas ou como posso ajudar"></textarea>
         </label>
-        <div style="display:flex; gap:.75rem; flex-wrap:wrap; align-items:center;">
-          <button class="btn" type="submit">Enviar</button>
+        <div style="display:flex; gap:.75rem; flex-wrap:wrap; align-items:center; justify-content: flex-end;">
+          <button class="btn ring" type="submit" style="min-width:140px;">Enviar</button>
           <span class="muted" id="form-status" role="status" aria-live="polite"></span>
         </div>
       </form>
@@ -1144,59 +1271,35 @@
       <div>
         <strong>Documentos</strong>
         <ul style="list-style:none;padding:0;margin-top:.8rem;display:grid;gap:.4rem;">
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+          <li><a href="termos.html">Termos de Uso</a></li>
         </ul>
       </div>
     </div>
     <div class="container"
       style="margin-top: var(--space-6); display:flex; justify-content:space-between; align-items:center; gap:1rem;">
       <small>© <span id="year"></span> Elaine Antunes. Todos os direitos reservados.</small>
-      <button class="btn ghost ring" id="theme-toggle" aria-label="Alternar tema">Alternar tema</button>
     </div>
   </footer>
 
-  <style>
-    /* Inputs (separado para prioridade) */
-    input,
-    textarea {
-      width: 100%;
-      margin-top: .4rem;
-      padding: .85rem 1rem;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, .12);
-      background: var(--surface);
-      color: var(--text);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: none;
-      box-shadow: 0 0 0 6px var(--ring);
-      border-color: var(--primary-600);
-    }
-
-    label {
-      font-weight: 600;
-    }
-  </style>
+  <!-- Popup de aceitação de termos -->
+  <div id="cookie-popup"
+    style="position:fixed;bottom:24px;right:24px;max-width:340px;z-index:9999;background:#fff;border-radius:18px;box-shadow:0 6px 32px rgba(9,99,77,.18);padding:1.5rem 1.2rem;display:none;flex-direction:column;gap:.8rem;">
+    <strong style="color:#09634d;">Termos de Uso & Privacidade</strong>
+    <p style="font-size:.98rem;color:#40615c;margin:0;">
+      Este site utiliza cookies e coleta dados para melhorar sua experiência. Ao continuar, você concorda com nossos
+      <a href="termos.html" target="_blank" style="color:#09634d;text-decoration:underline;">Termos de Uso</a> e
+      <a href="privacidade.html" target="_blank" style="color:#09634d;text-decoration:underline;">Política de Privacidade</a>.
+    </p>
+    <div style="display:flex;gap:.7rem;flex-wrap:wrap;">
+      <button id="accept-terms" class="btn ring" style="width:48%;background:#09634d;">Sim, aceito</button>
+      <button id="decline-terms" class="btn secondary ring" style="width:48%;">Não aceito</button>
+    </div>
+  </div>
 
   <script>
     // Ano dinâmico
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Tema claro/escuro manual com persistência
-    const toggleBtn = document.getElementById('theme-toggle');
-    const userPref = localStorage.getItem('theme');
-    if (userPref === 'dark') document.documentElement.style.colorScheme = 'dark';
-    if (userPref === 'light') document.documentElement.style.colorScheme = 'light';
-    toggleBtn?.addEventListener('click', () => {
-      const cs = getComputedStyle(document.documentElement).colorScheme || document.documentElement.style.colorScheme;
-      const next = cs === 'dark' ? 'light' : 'dark';
-      document.documentElement.style.colorScheme = next;
-      localStorage.setItem('theme', next);
-    });
 
     // Form handler (mock)
     function handleSubmit(e) {
@@ -1211,6 +1314,55 @@
         setTimeout(() => status.textContent = '', 5000);
       }, 800);
     }
+
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const status = document.getElementById('form-status');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+
+      const formData = new FormData(this);
+
+      try {
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          this.reset();
+          status.textContent = 'Sua mensagem foi enviada com sucesso! Entraremos em contato assim que possível.';
+        } else {
+          status.textContent = 'Ocorreu um erro ao enviar. Tente novamente mais tarde.';
+        }
+      } catch {
+        status.textContent = 'Ocorreu um erro ao enviar. Tente novamente mais tarde.';
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Enviar';
+      setTimeout(() => status.textContent = '', 6000);
+    });
+
+    // Popup de aceitação de termos
+    const popup = document.getElementById('cookie-popup');
+    const acceptBtn = document.getElementById('accept-terms');
+    const declineBtn = document.getElementById('decline-terms');
+
+    // Sempre mostra o popup ao recarregar
+    popup.style.display = 'flex';
+
+    acceptBtn?.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    declineBtn?.addEventListener('click', () => {
+      popup.style.display = 'none';
+      alert('Você precisa aceitar os termos para continuar navegando.');
+      window.location.href = "https://www.google.com";
+    });
   </script>
 </body>
 
