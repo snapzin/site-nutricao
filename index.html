@@ -44,7 +44,7 @@
       --bg: #ffffff;
       --bg-muted: #f6f9f8;
       --surface: #ffffff;
-      --text: #0c2a27;
+      --text: #0c2c29;
       --text-muted: #40615c;
       --primary: #0e8f6f;
       --primary-600: #0b7a5e;
@@ -849,7 +849,6 @@
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
-          <li><a href="#planos">Planos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -1104,66 +1103,6 @@
     </div>
   </section>
 
-  <!-- Planos / Preços -->
-  <section id="planos" class="section container">
-    <header class="center">
-      <h2>Planos de acompanhamento</h2>
-      <p class="muted mt-2">Escolha o formato ideal para o seu momento. Todos incluem avaliação completa e materiais de
-        apoio.</p>
-    </header>
-
-    <div class="grid pricing mt-8">
-      <article class="card price-card">
-        <h3>Start</h3>
-        <p class="muted">Para quem quer começar com o pé direito.</p>
-        <div class="price">R$ 249 <small>/ sessão</small></div>
-        <ul class="list-check">
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Avaliação completa (60–75min)</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Plano alimentar inicial</li>
-        </ul>
-        <a class="btn mt-6 ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">Agendar</a>
-      </article>
-
-      <article class="card price-card" aria-labelledby="best">
-        <span class="chip badge-best" id="best">Mais escolhido</span>
-        <h3>Follow</h3>
-        <p class="muted">Acompanhamento mensal para progresso contínuo.</p>
-        <div class="price">R$ 349 <small>/ mês</small></div>
-        <ul class="list-check">
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Reavaliação quinzenal</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Ajustes de plano ilimitados</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Suporte por WhatsApp</li>
-        </ul>
-        <a class="btn mt-6 ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">Começar</a>
-      </article>
-
-      <article class="card price-card">
-        <h3>Performance</h3>
-        <p class="muted">Foco em esporte, composição corporal e periodização.</p>
-        <div class="price">R$ 449 <small>/ mês</small></div>
-        <ul class="list-check">
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Estratégias pré/intra/pós treino</li>
-          <li><svg class="icon" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg> Relatórios mensais</li>
-        </ul>
-        <a class="btn mt-6 ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">Quero este</a>
-      </article>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="section container faq">
     <header class="center">
@@ -1188,29 +1127,44 @@
   </section>
 
   <!-- CTA -->
-  <section class="section container card cta" aria-label="Agendamento">
-    <div class="grid cols-2 split">
+  <section class="section container card cta" aria-label="Agendamento" style="background: radial-gradient(1200px 800px at 80% -10%, rgba(14, 143, 111, .08), transparent 60%), linear-gradient(180deg, var(--bg-muted), var(--bg)); border: none; box-shadow: 0 8px 40px rgba(14,143,111,.10);">
+    <div class="grid cols-2 split" style="align-items: center;">
       <div>
-        <h2>Pronto(a) para começar?</h2>
-        <p class="muted mt-2">Clique para enviar uma mensagem e reservar sua avaliação. Respondo em até 24h úteis.</p>
-        <div class="actions mt-6">
-          <a class="btn ring" href="https://wa.me/48999469698" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn secondary ring" href="#contato">Formulário</a>
+        <h2>Vamos iniciar seu acompanhamento?</h2>
+        <p class="muted mt-2">
+          <span style="font-weight:600;">Cada paciente é único e merece um cuidado especial.</span><br>
+          O atendimento é totalmente personalizado, pensado para sua saúde, bem-estar e rotina.<br>
+          <span class="chip" style="margin:.7em 0;font-weight:600;">
+            Fale comigo pelo WhatsApp para tirar dúvidas, receber orientação ou agendar sua avaliação.
+          </span><br>
+          <strong style="display:block;margin-top:1.1em;">
+            Seu caminho para uma alimentação mais eficaz e segura durante o tratamento oncológico começa aqui!
+          </strong>
+        </p>
+        <div class="actions mt-6" style="margin-top:2.2rem;">
+          <a class="btn ring" href="https://wa.me/48999469698" target="_blank" rel="noopener" style="font-size:1.18rem;padding:1.1rem 2.2rem;border-radius:999px;box-shadow:0 4px 24px #27c2a033;">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" aria-hidden="true" style="margin-right:10px;">
+              <circle cx="16" cy="16" r="16" fill="#25D366"/>
+              <path fill="#FFF" d="M23.49 20.49c-.34-.17-2.01-.99-2.32-1.1-.31-.12-.54-.17-.77.17-.23.34-.88 1.1-1.08 1.33-.2.23-.4.25-.74.08-.34-.17-1.44-.53-2.74-1.68-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.53.15-.7.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.85-1.06-2.53-.28-.68-.57-.59-.77-.6-.2-.01-.43-.01-.66-.01-.23 0-.6.09-.92.43-.32.34-1.22 1.19-1.22 2.9 0 1.71 1.25 3.37 1.43 3.61.18.24 2.45 3.75 5.94 5.1.83.32 1.48.51 1.99.65.84.21 1.6.18 2.2.11.67-.08 2.01-.82 2.3-1.61.29-.79.29-1.47.2-1.61-.09-.14-.31-.22-.65-.39z"/>
+            </svg>
+            Falar no WhatsApp
+          </a>
         </div>
       </div>
-      <div aria-hidden="true" class="center">
-        <svg viewBox="0 0 300 150" style="max-width:340px;opacity:.9">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop stop-color="#27c2a0" offset="0" />
-              <stop stop-color="#0e8f6f" offset="1" />
-            </linearGradient>
-          </defs>
-          <path d="M0 100 Q80 60 150 90 T300 80" fill="none" stroke="url(#g1)" stroke-width="8"
-            stroke-linecap="round" />
-          <circle cx="50" cy="90" r="6" fill="#27c2a0" />
-          <circle cx="180" cy="85" r="6" fill="#0e8f6f" />
-        </svg>
+      <div aria-hidden="true" class="center" style="display:flex;justify-content:center;align-items:center;">
+        <div style="position:relative;display:inline-block;">
+          <img src="img/doutora1.jpg" alt="Elaine Antunes" style="width:220px;height:220px;object-fit:cover;border-radius:50%;box-shadow:0 8px 40px rgba(14,143,111,.2);border:6px solid #ffd166;">
+          <svg width="240" height="240" viewBox="0 0 240 240" fill="none" style="position:absolute;top:-10px;left:-10px;z-index:-1;">
+            <ellipse cx="120" cy="120" rx="110" ry="80" fill="#27c2a0" opacity="0.08"/>
+            <ellipse cx="120" cy="120" rx="80" ry="60" fill="#ffd166" opacity="0.13"/>
+          </svg>
+          <span style="position:absolute;bottom:18px;right:18px;background:#063a19;border-radius:50%;padding:10px;box-shadow:0 2px 12px #25d36644;">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="#25D366"/>
+              <path fill="#FFF" d="M23.49 20.49c-.34-.17-2.01-.99-2.32-1.1-.31-.12-.54-.17-.77.17-.23.34-.88 1.1-1.08 1.33-.2.23-.4.25-.74.08-.34-.17-1.44-.53-2.74-1.68-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.53.15-.7.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.85-1.06-2.53-.28-.68-.57-.59-.77-.6-.2-.01-.43-.01-.66-.01-.23 0-.6.09-.92.43-.32.34-1.22 1.19-1.22 2.9 0 1.71 1.25 3.37 1.43 3.61.18.24 2.45 3.75 5.94 5.1.83.32 1.48.51 1.99.65.84.21 1.6.18 2.2.11.67-.08 2.01-.82 2.3-1.61.29-.79.29-1.47.2-1.61-.09-.14-.31-.22-.65-.39z"/>
+            </svg>
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -1250,10 +1204,8 @@
       </form>
 
       <aside class="card" style="padding: var(--space-6); display:grid; gap: .6rem;">
-        <h3>Consultório</h3>
-        <p class="muted">Rua verador adolfo machado, 549 — Centro, Tubarão/SC</p>
-        <h3 class="mt-6">Atendimento</h3>
-        <p class="muted">Seg a Sex, 9h às 18h</p>
+        <h3 class="mt-0">Horário de atendimento</h3>
+        <p class="muted">Segunda a sexta, 9h às 18h</p>
         <h3 class="mt-6">Contato</h3>
         <p class="muted">WhatsApp: <a href="https://wa.me/48999469698" target="_blank" rel="noopener">(48)
             99946‑9698</a><br>E‑mail: <a href="mailto:elaineapaantunes@gmail.com">elaineapaantunes@gmail.com</a>
@@ -1291,7 +1243,6 @@
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
-          <li><a href="#planos">Planos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
